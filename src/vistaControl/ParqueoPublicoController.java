@@ -1,6 +1,8 @@
 package vistaControl;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -58,12 +60,25 @@ public class ParqueoPublicoController {
     
     @FXML
     void calcularButtonPresionado(ActionEvent event) {
-    	//System.out.println("Hola!");
-    	parqueoPublico.marcarHoraFinal();
-    	String horaFinal = parqueoPublico.darHoraFinal();
-    	horaFinalTextField.setText(horaFinal);
-    	double valorAPagar = parqueoPublico.calcularValorAPagar();
-    	// To modify line
-    	valorAPagarTextField.setText(valorAPagar+"");
+    	try {
+    		//System.out.println("Hola!");
+        	parqueoPublico.marcarHoraFinal();
+        	String horaFinal = parqueoPublico.darHoraFinal();
+        	horaFinalTextField.setText(horaFinal);
+        	double valorAPagar = parqueoPublico.calcularValorAPagar();
+        	// To modify line
+        	valorAPagarTextField.setText(valorAPagar+"");
+        	valorAPagarTextField.setText(CURRENCY.format(valorAPagar));
+    	}catch(NumberFormatException e){
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setContentText("Please fill the information required");
+    	}
+    	catch(NullPointerException w){
+    		Alert a = new Alert(AlertType.WARNING);
+    		a.setContentText("Please fill the information required");
+    		a.setTitle("WARNING");
+    		a.setHeaderText("Ops... Something went wrong");
+    		a.showAndWait();
+    	}
     }    
 }
