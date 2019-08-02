@@ -31,7 +31,9 @@
          </font>
       </Button>
       <TextField fx:id="valorAPagarTextField" editable="false" focusTraversable="false" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-		<!-- To add lines -->
-      <Label text="Valor a Pagar" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+		<Label text="Vehículo" GridPane.halignment="CENTER" />
+      	<Label text="Hora de Inicio" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+      	<Label text="Hora Final" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+      	<Label text="Valor a Pagar" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
    </children>
 </GridPane>
